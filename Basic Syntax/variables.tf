@@ -8,7 +8,7 @@ variable "instance-type" {
   default     = "t2.micro"
 }
 
-variable "pem-key" {
+variable "ssh-key" {
   description = "Associated Key to SSH into the EC2 Instance"
-  default     = "Ed-Home_PC"
+  default     = "Ed-Home-PC"
 }
