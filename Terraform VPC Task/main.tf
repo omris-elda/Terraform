@@ -61,3 +61,8 @@ resource "aws_route_table" "routetable" {
   }
   depends_on = [aws_subnet.main]
 }
+# Create a route table association
+resource "aws_route_table_association" "association" {
+    subnet_id = aws_subnet.main.id
+    route_table_id = aws_route_table.routetable.id
+}
