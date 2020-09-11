@@ -1,11 +1,11 @@
 provider "aws" {
-    version = "~> 2.0"
-    region = "eu-west-1"
-    shared_credentials_file = "~/.aws/credentials"
+  version                 = "~> 2.0"
+  region                  = "eu-west-1"
+  shared_credentials_file = "~/.aws/credentials"
 }
 
 resource "aws_instance" "Basic_Syntax_EC2" {
-    ami = var.ami-id
-    instance_type = var.instance-type
-    key_name = var.ssh-key
+  ami           = var.ami-id
+  instance_type = var.instance-type
+  key_name      = var.ssh-key
 }
