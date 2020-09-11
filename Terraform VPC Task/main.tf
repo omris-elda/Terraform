@@ -1,6 +1,5 @@
 provider "aws" {
   region = "eu-west-1"
-  alias  = "aws-ireland"
 }
 # Create the VPC
 resource "aws_vpc" "main" {
@@ -49,7 +48,7 @@ resource "aws_instance" "EC2" {
   key_name      = var.ssh-key
 
   depends_on             = [aws_internet_gateway.gateway]
-  vpc_security_group_ids = aws_security_group.Default_SecGrp.id
+  vpc_security_group_ids = [aws_security_group.Default_SecGrp.id]
   subnet_id              = aws_subnet.main.id
 }
 # Create a Route Table
