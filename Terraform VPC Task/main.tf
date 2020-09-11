@@ -10,7 +10,7 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "main" {
     vpc_id = aws_vpc.main.id
     cidr_block = "10.0.1.0/24"
-    depends_on = 
+    depends_on = [aws_vpc.main]
 }
 # Create the Security Group
 resource "aws_security_group" "Default_SecGrp" {
@@ -33,12 +33,14 @@ resource "aws_security_group" "Default_SecGrp" {
         protocol = "-1"
         cidr_blocks = ["0.0.0.0/0"]
     }
+    depends_on = [aws_subnet.main]
 # Terraform auto-removes the default allow all rule for egress traffic, and so we have to manually
 # recreate it with the above code
 }
 # Create the internet gateway
 resource "aws_internet_gateway" "gateway" {
     vpc_id = aws_vpc.main.id
+    depends_on = [aws_subnet.main]
 }
 # Create an EC2 Instance
 resource "aws_instance" "EC2" {
@@ -57,4 +59,5 @@ resource "aws_route_table" "routetable" {
         cidr_block = "10.0.1.0/24"
         gateway_id = aws_internet_gateway.gateway.id
     }
+    depends_on = [aws_subnet.main]
 }
