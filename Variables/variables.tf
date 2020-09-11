@@ -1,7 +1,7 @@
 variable "ami" {
-    description = "Machine image"
+  description = "Machine image"
 }
 # The actual values for these variables are stored in the variableValues.tfvars file
 variable "type" {
-    description = "Machine Size/Type"
+  description = "Machine Size/Type"
 }

@@ -1,10 +1,10 @@
 provider "aws" {
-    region = "eu-west-1"
+  region = "eu-west-1"
 }
 
 resource "aws_instance" "example" {
-    ami = var.ami
-    instance_type = var.type
+  ami           = var.ami
+  instance_type = var.type
 }
 
 # This pulls the information from the variables defined in the variables.tf file, instead of typing them out manually here.
