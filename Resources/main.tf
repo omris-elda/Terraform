@@ -24,7 +24,7 @@ variable "zone" {
 
 # End local variables
 
-resource "aws_instance" "example name" {
+resource "aws_instance" "example_name" {
     provider = "aws.aws-ireland"
     for_each = var.zone # For each sub-variable in the zone variable this will run
     availability_zone = each.value # Looks at the values in the zone variable
