@@ -50,6 +50,7 @@ resource "aws_instance" "EC2" {
   depends_on             = [aws_internet_gateway.gateway]
   vpc_security_group_ids = [aws_security_group.Default_SecGrp.id]
   subnet_id              = aws_subnet.main.id
+  associate_public_ip_address = true
 }
 # Create a Route Table
 resource "aws_route_table" "routetable" {
