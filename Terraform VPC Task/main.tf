@@ -45,7 +45,7 @@ resource "aws_internet_gateway" "gateway" {
 # Create an EC2 Instance
 resource "aws_instance" "EC2" {
   ami           = var.ami-id
-  instance_type = var.instance_type
+  instance_type = var.instance-type
   key_name      = var.ssh-key
 
   depends_on             = [aws_internet_gateway.gateway]
