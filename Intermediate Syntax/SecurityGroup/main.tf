@@ -5,8 +5,8 @@ resource "aws_security_group" "wsg" {
 
     dynamic "ingress" {
         iterator = port
-        for_each var.ingress_ports
-        content{
+        for_each = var.ingress_ports
+        content {
             from_port = port.value
             to_port = port.value
             protocol = "tcp"
