@@ -5,17 +5,17 @@ provider "aws" {
 }
 
 module "aws_vpc" {
-  source = "./~/Terraform/Intermediate Syntax/VPC"
+  source = "./VPC"
 }
 
 module "aws_webserver_sg" {
-  source = "./~/Terraform/Intermediate Syntax/SecurityGroup"
+  source = "./SecurityGroup"
   name   = "WebServerSG"
   vpc_id = module.aws_vpc.vpc_id
 }
 
 module "webserver_node" {
-  source                 = "./~/Terraform/Intermediate Syntax/EC2"
+  source                 = "./EC2"
   subnet_id              = module.aws_vpc.public_subnetA_id
   vpc_security_group_ids = module.aws_webserver_sg.aws_wsg_id
   tags = {

@@ -13,12 +13,12 @@ variable "pem-key" {
     default = "Ed-Home-PC"
 }
 
-module "subnet" {
-    source = "~/Terraform/Intermediate Syntax/VPC"
-}
+# module "subnet" {
+#     source = "~/Terraform/Intermediate Syntax/VPC"
+# }
 
 variable "subnet_id" {
-    value = module.subnet.public_subnetA_id
+    # value = module.subnet.public_subnetA_id
 }
 
 variable "associate_public_ip_address" {
