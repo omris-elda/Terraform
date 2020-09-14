@@ -1,4 +1,4 @@
-variable "ubuntu-ami" {
+variable "ami" {
   description = "AMI ID of ubuntu 18.04LTS eu-west-1"
   default     = "ami-04137ed1a354f54c4"
 }
