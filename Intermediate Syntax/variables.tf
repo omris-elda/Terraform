@@ -10,3 +10,7 @@ variable "centos-ami-id" {
   # but an older version of Ubuntu.
   default = "ami-09b49c48928db765c"
 }
+
+variable "ami" {
+    description = "just a debug check"
+}
