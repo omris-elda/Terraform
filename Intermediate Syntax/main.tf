@@ -9,7 +9,7 @@ module "aws_vpc" {
 }
 
 module "aws_webserver_sg" {
-  source = "./SecurityGroups"
+  source = "./SecurityGroup"
   name   = "WebServerSG"
   vpc_id = module.aws_vpc.vpc_id
 }
