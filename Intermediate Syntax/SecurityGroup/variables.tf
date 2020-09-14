@@ -21,5 +21,10 @@ variable "name" {
 
 variable "vpc_id" {
   description = "VPC ID"
-  default     = "Pull from main"
+  default     = "Pull from main.tf"
+}
+
+variable "vpc_security_group_ids" {
+  description = "IDs of the security groups"
+  default     = "Pull from main.tf"
 }
