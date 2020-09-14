@@ -32,3 +32,8 @@ variable "tags" {
     Name = "EC2 Name"
   }
 }
+
+variable "vpc_security_group_ids" {
+  description = "IDs of the security groups"
+  default     = "Pull from main.tf"
+}
