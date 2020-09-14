@@ -29,8 +29,8 @@ module "webserver_node_2" {
   source                 = "./EC2"
   subnet_id              = module.aws_vpc.public_subnetA_id
   vpc_security_group_ids = module.aws_webserver_sg.aws_wsg_id
+  ami                    = var.centos-ami-id
   tags = {
     Name = "WebServer_Node_2"
   }
-  ami = centos-ami-id
 }
