@@ -18,3 +18,8 @@ variable "name" {
   description = "Name of the security group"
   default     = "Allow_SSH"
 }
+
+variable "vpc_id" {
+  description = "VPC ID"
+  default     = "Pull from main"
+}
