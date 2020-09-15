@@ -10,7 +10,7 @@ resource "local_file" "AnsibleInventory" {
   content = templatefile("inventory.cfg",
   {
     public-ip = module.Node_1.*.PublicEC2IP,
-    # public-id = module.Node_1.*.id
+    public-id = module.Node_1.*.id
   }
   )
   filename = "inventory.cfg"
