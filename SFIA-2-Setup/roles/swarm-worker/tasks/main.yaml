@@ -1,0 +1,26 @@
+- name: Leave Docker Swarm
+  docker_swarm:
+    state: absent
+    force: true
+# Leaves the swarm if it's already part of one
+
+# - name: Remove node
+#   docker_swarm:
+#     state: remove
+#     node_id: mynode
+
+- name: Join Docker Swarm - Worker 1
+  docker_swarm:
+    state: join
+    advertise_addr: 10.154.0.4  # this is the slaves IP address
+    join_token: "{{ hostvars['join_token']['value'] }}"
+    remote_addrs: [ "10.154.0.3:2377" ] # this is the Managers IP address
+# Joins the swarm using the token we gathered in the swarm-manager role
+
+- name: Join Docker Swarm - Worker 2
+  docker_swarm:
+    state: join
+    advertise_addr: 10.154.0.5  # this is the slaves IP address
+    join_token: "{{ hostvars['join_token']['value'] }}"
+    remote_addrs: [ "10.154.0.3:2377" ] # this is the Managers IP address
+# Joins the swarm using the token we gathered in the swarm-manager role

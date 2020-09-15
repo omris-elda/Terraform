@@ -1,0 +1,33 @@
+- name: Leave Swarm
+  docker_swarm:
+    state: absent
+    force: true
+# Leaves the swarm if it's already part of one
+
+- name: Initialise Docker Swarm
+  docker_swarm:
+    state: present
+# Initialises a new swarm and becomes the manager of it
+
+- name: Inspect Swarm (and hopefully get the join token?)
+  docker_swarm:
+    state: inspect
+  register: swarm_info
+
+
+# - name: Remove node
+#   docker_swarm:
+#     state: remove
+#     node_id: node1
+
+- name: Inspect Swarm Nodes
+  docker_swarm_info:
+    nodes: yes
+
+- name: Export Variable
+  add_host:
+    name: "join_token"
+    value: "{{ swarm_info.swarm_facts.JoinTokens.Worker }}"
+
+    # so 'value' will now refer to the swarm_info variable from inspect swarm and is accessable for everyone
+    # because it's a host variable

@@ -1,0 +1,17 @@
+- hosts: all
+  become: yes
+  roles:
+  - docker
+# # Installs docker on all machines
+
+- hosts: manager
+  become: yes
+  roles:
+  - swarm-manager
+# Initialises the swarm and creates the manager
+
+- hosts: worker
+  become: yes
+  roles:
+  - swarm-worker
+# Joins workers to the swarm
