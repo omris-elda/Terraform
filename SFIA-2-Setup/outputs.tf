@@ -11,8 +11,8 @@ resource "local_file" "AnsibleInventory" {
   {
     public-ip = module.Node_1.*.PublicEC2IP,
     public-id = module.Node_1.*.id,
-    # public-ip = module.Node_2.*.PublicEC2IP,
-    # public-id = module.Node_2.*.id,
+    public-ip-2 = module.Node_2.*.PublicEC2IP,
+    public-id-2 = module.Node_2.*.id,
     jenkins-ip = module.Jenkins_Master.*.PublicEC2IP,
     jenkins-id = module.Jenkins_Master.*.id
   }
