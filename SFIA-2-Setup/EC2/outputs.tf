@@ -7,3 +7,8 @@ output "KeyName" {
   value = aws_instance.Instances.key_name
   # Outputs the name of the ssh key
 }
+
+output "id" {
+  value = aws_instance.Instances.id
+  # Outputs the ID of the newly created instance
+}
