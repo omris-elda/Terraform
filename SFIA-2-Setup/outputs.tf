@@ -9,8 +9,8 @@ output "EC2_Node_1_IP" {
 resource "local_file" "AnsibleInventory" {
   content = templatefile("inventory.cfg",
   {
-    public-ip = module.aws_instance.Node_1.*.public_ip
-    public-id = module.aws_instance.Node_1.*.id
+    public-ip = module.Node_1.*.public_ip
+    public-id = module.Node_1.*.id
   }
   )
   filename = "inventory.cfg"
