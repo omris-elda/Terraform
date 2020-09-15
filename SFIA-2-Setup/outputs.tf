@@ -13,8 +13,8 @@ resource "local_file" "AnsibleInventory" {
     public-id = module.Node_1.*.id
     public-ip = module.Node_2.*.PublicEC2IP,
     public-id = module.Node_2.*.id
-    public-ip = module.Jenkins_Master.*.PublicEC2IP,
-    public-id = module.Jenkins_Master.*.id
+    jenkins-ip = module.Jenkins_Master.*.PublicEC2IP,
+    jenkins-id = module.Jenkins_Master.*.id
   }
   )
   filename = "inventory.cfg"
