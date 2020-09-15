@@ -16,7 +16,7 @@ variable "ssh-key" {
 variable "subnet_id" {
   # value = module.subnet.public_subnetA_id
   description = "Required default value, will be added in the primary main.tf"
-  default = "Null"
+  default     = "Null"
 }
 
 variable "associate_public_ip_address" {
@@ -27,7 +27,7 @@ variable "associate_public_ip_address" {
 variable "tags" {
   description = "Tags to be applied to the EC2 Instances"
   default = {
-    Name = "Default Instance Name"
+    Name        = "Default Instance Name"
     Description = "Default Instance Description"
   }
 }
