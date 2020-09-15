@@ -23,7 +23,6 @@ module "Node_1" {
     Name = "WebServer_Node_1"
   }
   associate_public_ip_address = true
-  count = 5
 }
 
 module "Node_2" {
